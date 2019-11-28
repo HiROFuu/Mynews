@@ -45,7 +45,10 @@
 
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
-                            @guest
+                            {{-- 以下を追記 --}}
+                        <!-- Authentication Links -->
+                        {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
+                        @guest
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                         {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
                         @else
