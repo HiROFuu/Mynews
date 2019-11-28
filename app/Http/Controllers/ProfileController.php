@@ -6,16 +6,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\HTML;
 
 // 追記
-use App\ProfileHistory;
+use App\Profile;
 
 class ProfileController extends Controller
 {
     public function index(Request $request)
     {
-        $posts = ProfileHistory::all()->sortByDesc('updated_at');
+        $posts = Profile::all()->sortByDesc('updated_at');
 
         if (count($posts) > 0) {
-            $headline = $posts->shift();
+            $headline = Profile::find($request->id);
         } else {
             $headline = null;
         }
