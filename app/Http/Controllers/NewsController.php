@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\HTML;
 
 // 追記
 use App\News;
+use Storage;
 
 class NewsController extends Controller
 {
