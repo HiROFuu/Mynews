@@ -17,7 +17,7 @@ class NewsController extends Controller
         if ($cond_title != ''){
             $posts = News::where('title', 'LIKE', "%$cond_title%")->orderBy('update_at', 'desc')->get();
         } else{
-            $posts = News::all()->sortByDesc('update_at');
+            $posts = News::all()->sortByDesc('updated_at');
         }
         return view('admin.news.index',['posts' => $posts, 'cond_title' => $cond_title]);
     }
@@ -52,8 +52,8 @@ class NewsController extends Controller
       $news->fill($form);
       $news->save();
       
-      // admin/news/createにリダイレクトする
-      return redirect('admin/news/create');
+      // admin/news/にリダイレクトする
+      return redirect('admin/news/');
   }  
   
 public function edit(Request $request)
